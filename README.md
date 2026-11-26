@@ -1,6 +1,25 @@
 # bannerpreview.tech
 
-Discord server banner and asset previewer built with React, Vite, and Tailwind CSS.
+Universal social media banner and asset previewer built with React, Vite, and Tailwind CSS.
+
+Preview banners, headers, covers, and avatars across **all major social media platforms**:
+- **Discord**: Server banner (960×540) & server icon (512×512)
+- **X (Twitter)**: Header banner (1500×500) & profile picture (400×400)
+- **YouTube**: Channel banner (2560×1440) & channel icon (800×800) with multi-device safe zone overlay
+- **LinkedIn**: Background photo (1584×396) & profile photo (400×400)
+- **Twitch**: Profile banner (1200×480) & avatar (256×256) with live status badge
+- **Facebook**: Cover photo (851×315) & profile picture (170×170) with mobile crop preview
+- **Reddit**: Community banner (1920×384) & icon (256×256)
+- **GitHub**: Social preview (1280×640) & profile avatar (500×500)
+
+## Features
+
+- **Multi-Platform Instant Switching**: Upload your banner once and preview it across all 8 platforms instantly.
+- **Desktop & Mobile Layouts**: Accurate UI mockups simulating real desktop and mobile app screens.
+- **Platform-Specific Safe-Zone Overlays**: Visualize avatar obstructions, title overlays, and device crop boundaries.
+- **Spec Sheet Generator**: Download a high-res spec sheet canvas with target specs, format, and color palette.
+- **Dominant Palette Extraction**: Automatic HEX color extraction from your banner.
+- **100% Client-Side**: All image processing stays private in your browser.
 
 ## Local development
 
@@ -11,52 +30,8 @@ npm run dev
 
 Open the local URL printed by Vite, usually `http://localhost:5173`.
 
-## Deploy for free with Cloudflare Pages
-
-Cloudflare Pages is a good fit for this app because it serves the generated Vite
-files directly. No server, database, or Heroku dyno is required.
-
-1. Push this project to a GitHub repository.
-2. Sign in to the Cloudflare dashboard and open **Workers & Pages**.
-3. Choose **Create application** → **Pages** → **Connect to Git**.
-4. Select the GitHub repository.
-5. Use these build settings:
-
-   - **Framework preset:** Vite
-   - **Build command:** `npm run build`
-   - **Build output directory:** `dist`
-   - **Node.js version:** `20` or newer
-
-6. Save and deploy. Cloudflare will provide a temporary `*.pages.dev` URL.
-
-## Connect `bannerpreview.tech`
-
-In the Cloudflare Pages project:
-
-1. Open **Custom domains** → **Set up a custom domain**.
-2. Enter `bannerpreview.tech` and complete the prompted DNS setup.
-3. In `.tech Domains`, open the domain's DNS management page.
-4. If Cloudflare asks you to use its nameservers, replace the registrar's
-   nameservers with the two nameservers Cloudflare gives you. This is the
-   simplest option because Cloudflare then manages the DNS and HTTPS
-   certificate automatically.
-5. If Cloudflare offers a CNAME setup instead, add the exact CNAME record it
-   provides. Do not guess the target value.
-6. Add `www.bannerpreview.tech` as a second custom domain if you want the
-   `www` address, then configure a redirect to the root domain.
-
-DNS changes can take a little while to propagate. Cloudflare Pages will issue
-HTTPS automatically after the domain is verified.
-
-## Deploy updates
-
-After the initial connection, every push to the selected GitHub branch rebuilds
-and deploys the site automatically:
+## Build
 
 ```bash
-git add .
-git commit -m "Update bannerpreview.tech"
-git push origin main
+npm run build
 ```
-
-The app keeps all uploaded images in the browser; no backend service is needed.
